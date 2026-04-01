@@ -16,10 +16,11 @@
     </div>
 
     <div class="right-panel">
-      <div id="aiPlaceholder" class="ai-placeholder">
-        神秘訊號尚未出現……
-      </div>
-      <iframe id="aiFrame" class="content-frame" title="AI Assistant" style="display:none;"></iframe>
+      <iframe id="aiFrame" class="content-frame"
+        src="https://aintcu.ntcu.edu.tw:5170/chatbot-iframe/1d34b252-40d8-4ef4-9583-9981d78e1337" title="AI Assistant">
+      </iframe>
+
+      <div id="aiCover" class="ai-cover"></div>
     </div>
   </div>
 
@@ -32,6 +33,7 @@
     window.addEventListener("orientationchange", setAppHeight);
     setAppHeight();
   </script>
+
   <script>
     let aiOpened = false;
 
@@ -39,12 +41,10 @@
       if (aiOpened) return;
       aiOpened = true;
 
-      const aiFrame = document.getElementById("aiFrame");
-      const placeholder = document.getElementById("aiPlaceholder");
-
-      aiFrame.src = "https://aintcu.ntcu.edu.tw:5170/chatbot-iframe/1d34b252-40d8-4ef4-9583-9981d78e1337";
-      aiFrame.style.display = "block";
-      placeholder.style.display = "none";
+      const cover = document.getElementById("aiCover");
+      if (cover) {
+        cover.style.display = "none";
+      }
     }
 
     window.addEventListener("message", function (event) {
