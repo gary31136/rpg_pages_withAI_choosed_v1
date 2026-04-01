@@ -48,7 +48,7 @@ body {
   background: #000;
   z-index: 10;
   opacity: 1;
-  transition: opacity 0.5s ease;
+  transition: opacity 1.2s ease;
 }
 
 .ai-cover.hide {
